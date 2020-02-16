@@ -1,0 +1,34 @@
+.game-tile-uncovered {
+  background-color: #cce4f7;
+  text-align: center;
+  color: #333333;
+  border: 1px solid #e0eefa;
+}
+
+.game-tile-covered {
+  background-color: #64a5d9;
+  text-align: center;
+  color: #333333;
+  border: 1px solid #e0eefa;
+}
+
+.game-tile-bingo {
+  background-color: #fca4c6;
+  text-align: center;
+  color: #333333;
+  border: 1px solid #e0eefa;
+}
+
+.game-header {
+  background-color: #ecf7cc;
+  text-align: center;
+  font-weight: bold;
+  color: #333333;
+  border: 1px solid #e0eefa;
+}
+
+.square {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}

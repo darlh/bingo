@@ -1,0 +1,30 @@
+<div *ngIf="gameBoard">
+  <div class="ui-g ui-g-nopad">
+    <div class="ui-g-offset-1 ui-g-10 game-header">{{gameBoard.title}}</div>
+  </div>
+  <div class="ui-g ui-g-nopad">
+    <div class="ui-g-offset-1 ui-g-2 game-header">B</div>
+    <div class="ui-g-2 game-header">I</div>
+    <div class="ui-g-2 game-header">N</div>
+    <div class="ui-g-2 game-header">G</div>
+    <div class="ui-g-2 game-header">O</div>
+  </div>
+  <div class="ui-g ui-g-nopad" *ngFor="let x of rows">
+    <div class="ui-g-1"></div>
+    <div class="ui-g-2"
+         *ngFor="let y of columns"
+         [innerHTML]="(gameBoard.tiles | tilePosition: x:y).content"
+         (click)="clickTile(x,y)"
+         [ngClass]="{
+          'game-tile-uncovered' : !(gameBoard.tiles | tilePosition: x:y).covered,
+          'game-tile-covered' : (gameBoard.tiles | tilePosition: x:y).covered,
+          'game-tile-bingo' : (gameBoard.tiles | tilePosition: x:y).bingo
+         }"></div>
+    <div class="ui-g-1"></div>
+  </div>
+
+  <p-dialog header="BINGO!" [(visible)]="gameBoard.bingo" [modal]="true">
+    <p>You Win!</p>
+  </p-dialog>
+</div>
+

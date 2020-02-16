@@ -29,7 +29,9 @@
     "oidc-client": "^1.9.1",
     "popper.js": "^1.16.0",
     "rxjs": "^6.5.3",
-    "zone.js": "0.9.1"
+    "zone.js": "0.9.1",
+    "primeng": "^8.0.0",
+    "primeicons": "^2.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.803.14",

@@ -13,7 +13,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +29,27 @@
     <Content Remove="$(SpaRoot)**" />
     <None Remove="$(SpaRoot)**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\app\game-board\game-board.component.ts" />
+    <None Remove="ClientApp\src\app\model\GameBoard.ts" />
+    <None Remove="ClientApp\src\app\pipe\tile-position.pipe.ts" />
+    <None Remove="ClientApp\src\app\service\config.service.ts" />
+    <None Remove="ClientApp\src\app\service\game-board.service.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BingoData\BingoData.csproj" />
+    <ProjectReference Include="..\BingoService\BingoService.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\game-board\game-board.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\GameBoard.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\pipe\tile-position.pipe.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\service\config.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\service\game-board.service.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
