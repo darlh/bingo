@@ -17,4 +17,8 @@ export class GameBoardService {
   getGameBoard(id: number) {
     return this.http.get<GameBoard>(this.baseUrl + id);
   }
+
+  getGameBoards() {
+    return this.http.get<GameBoard[]>(this.baseUrl);
+  }
 }

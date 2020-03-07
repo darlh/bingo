@@ -20,10 +20,18 @@ namespace BingoApi.Controllers
         [HttpGet("gameBoard/{id}")]
         public async Task<IActionResult> Get(long id) => await GetNewGame(id);
 
+        [HttpGet("gameBoard")]
+        public async Task<IActionResult> Get() => await GetGames();
+
         private async Task<IActionResult> GetNewGame(long id)
         {
             return Ok(await _gameService.GetGameBoardById(id));
         }
+        private async Task<IActionResult> GetGames()
+        {
+            return Ok(await _gameService.GetGames());
+        }
+
 
     }
 }

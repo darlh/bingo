@@ -9,5 +9,6 @@ namespace BingoService.Interface
     public interface IGameService
     {
         public Task<GameBoardModel> GetGameBoardById(long id);
+        public Task<ICollection<GameBoardModel>> GetGames();
     }
 }

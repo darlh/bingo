@@ -33,6 +33,18 @@ namespace BingoService.Service
             }
         }
 
+        public async Task<ICollection<GameBoardModel>> GetGames()
+        {
+            try
+            {
+                return _mapper.Map<ICollection<GameBoardModel>>(await Task.Run(() => _gameData.GetGames()));
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
         private ICollection<TileModel> GenerateRandomGameCard(ICollection<TileModel> tiles)
         {
             //Shuffle the tiles

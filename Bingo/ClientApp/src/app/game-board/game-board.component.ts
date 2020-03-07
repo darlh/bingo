@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { GameBoardService } from '../service/game-board.service';
 import { GameBoard, Tile } from '../model/GameBoard';
 
@@ -9,6 +10,7 @@ import { GameBoard, Tile } from '../model/GameBoard';
 })
 
 export class GameBoardComponent implements OnInit {
+  gameBoardId: number;
   gameBoard: GameBoard;
   rows: number[] = [1, 2, 3, 4, 5];
   columns: number[] = [1, 2, 3, 4, 5];
@@ -22,10 +24,10 @@ export class GameBoardComponent implements OnInit {
     ];
 
 
-  constructor(readonly gameBoardService: GameBoardService) { }
+  constructor(readonly gameBoardService: GameBoardService, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.gameBoardService.getGameBoard(1).subscribe(data => {
+    this.gameBoardService.getGameBoard(+this.route.snapshot.paramMap.get('id')).subscribe(data => {
       this.gameBoard = data;
       this.gameBoard.bingo = false;
       this.gameBoard.tiles.forEach(tile => tile.covered = false);
