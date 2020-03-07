@@ -34,6 +34,7 @@
   <ItemGroup>
     <None Remove="ClientApp\src\app\game-board\game-board.component.ts" />
     <None Remove="ClientApp\src\app\model\GameBoard.ts" />
+    <None Remove="ClientApp\src\app\new-game\new-game.component.ts" />
     <None Remove="ClientApp\src\app\pipe\tile-position.pipe.ts" />
     <None Remove="ClientApp\src\app\service\config.service.ts" />
     <None Remove="ClientApp\src\app\service\game-board.service.ts" />
@@ -47,6 +48,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\game-board\game-board.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\model\GameBoard.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\new-game\new-game.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\pipe\tile-position.pipe.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\service\config.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\service\game-board.service.ts" />

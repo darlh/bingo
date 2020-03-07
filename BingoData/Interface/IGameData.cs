@@ -9,5 +9,6 @@ namespace BingoData.Interface
     public interface IGameData
     {
         Task<GameBoard> GetGameBoardByIdAsync(long gameBoardId);
+        Task<ICollection<GameBoard>> GetGames();
     }
 }

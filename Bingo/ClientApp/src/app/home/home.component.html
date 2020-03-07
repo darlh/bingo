@@ -1,3 +1,7 @@
-<button pButton type="button" label="Start New Game" routerLink="/game-board"></button>
+<button pButton type="button" label="Start New Game" (click)="newGameDialogVisible=true"></button>
 <button pButton type="button" label="Join Game"></button>
 <button pButton type="button" label="Create New Board"></button>
+
+<p-dialog header="Start New Game" [(visible)]="newGameDialogVisible" [modal]="true">
+  <new-game></new-game>
+</p-dialog>

@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { GameBoardComponent } from './game-board/game-board.component';
+import { NewGameComponent } from './new-game/new-game.component';
 
 import { ConfigService } from './service/config.service';
 import { GameBoardService } from './service/game-board.service';
@@ -19,6 +20,7 @@ import { TilePositionPipe } from './pipe/tile-position.pipe';
 
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
+import { DropdownModule } from 'primeng/dropdown';
 
 
 
@@ -30,6 +32,7 @@ import { DialogModule } from 'primeng/dialog';
     CounterComponent,
     FetchDataComponent,
     GameBoardComponent,
+    NewGameComponent,
 
     TilePositionPipe,
   ],
@@ -40,11 +43,12 @@ import { DialogModule } from 'primeng/dialog';
     ButtonModule,
     DialogModule,
     BrowserAnimationsModule,
+    DropdownModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'game-board', component: GameBoardComponent },
+      { path: 'game-board/:id', component: GameBoardComponent },
     ])
   ],
   providers: [

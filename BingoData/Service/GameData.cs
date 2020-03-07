@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using BingoData.Interface;
 using BingoData.Model;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,10 @@ namespace BingoData.Service
                 _context.GameBoard
                 .Include(gameBoard => gameBoard.GameTile)
                 .SingleOrDefaultAsync(gameBoard => gameBoard.Id.Equals(gameBoardId)));
+        }
+        public async Task<ICollection<GameBoard>> GetGames()
+        {
+            return await Task.Run(() => _context.GameBoard.ToListAsync());
         }
     }
 }

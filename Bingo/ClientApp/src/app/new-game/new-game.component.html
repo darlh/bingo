@@ -1,0 +1,4 @@
+<div>
+  <p-dropdown [options]="gameBoards" [(ngModel)]="selectedGameBoard" optionLabel="title" placeholder="Select a Board" appendTo="body"></p-dropdown>
+  <button pButton type="button" label="Start" [routerLink]="'/game-board/' + selectedGameBoard?.id" ></button>
+</div>
