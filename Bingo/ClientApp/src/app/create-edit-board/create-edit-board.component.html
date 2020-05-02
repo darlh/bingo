@@ -1,0 +1,24 @@
+<div *ngIf="gameBoard">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="form-group">
+      <div class="ui-g">
+        <div class="ui-g-4">
+          <label>Title</label>
+          <input class="ng-invalid" type="text" pInputText name="title" [(ngModel)]="gameBoard.title" required maxlength="20"/>
+        </div>
+        <div class="ui-g-4">
+          <label>Author</label>
+          <input type="text" pInputText name="author" [(ngModel)]="gameBoard.author" required maxlength="20"/>
+        </div>
+      </div>
+      <div class="ui-g">
+        <div class="ui-inputgroup ui-g-3" *ngFor="let tile of gameBoard.tiles; let i=index">
+          <input type="text" pInputText [name]="'tile' + i" [(ngModel)]="gameBoard.tiles[i].content" />
+          <button pButton type="button" icon="pi pi-times" class="ui-button-danger" *ngIf="i>24 && gameBoard.tiles.length==i+1" (click)="removeTile(i)" required></button>
+        </div>
+        <button type="button" pButton icon="pi pi-plus" (click)="addTile($event)"></button>
+      </div>
+      <button type="submit" pButton icon="fa fa-save" label="Save"></button>
+    </div>
+  </form>
+</div>

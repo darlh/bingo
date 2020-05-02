@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ConfigService } from './config.service';
 import { GameBoard } from '../model/GameBoard';
+import { error } from '@angular/compiler/src/util';
 
 @Injectable()
 export class GameBoardService {
@@ -11,7 +12,7 @@ export class GameBoardService {
     private http: HttpClient,
     private configService: ConfigService,
   ) {
-    this.baseUrl = this.configService.baseUrl + 'api/Game/gameBoard/';
+    this.baseUrl = this.configService.baseUrl + 'api/Board/';
   }
 
   getGameBoard(id: number) {
@@ -20,5 +21,28 @@ export class GameBoardService {
 
   getGameBoards() {
     return this.http.get<GameBoard[]>(this.baseUrl);
+  }
+
+  createGameBoard(board: GameBoard) {
+    return this.http.post<GameBoard>(this.baseUrl, board).subscribe(
+      data => {
+        console.log("Create is successful!", data);
+      },
+      error => {
+        console.log("Error", error);
+        throw (error);
+      }
+    );
+  }
+
+  editGameBoard(board: GameBoard) {
+    return this.http.put<GameBoard>(this.baseUrl, board).subscribe(
+      data => {
+        console.log("Edit is successful!", data);
+      },
+      error => {
+        console.log("Error", error);
+        throw (error);
+      })
   }
 }

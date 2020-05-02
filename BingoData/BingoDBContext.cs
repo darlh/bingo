@@ -28,39 +28,34 @@ namespace BingoData
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<GameBoard>(entity =>
-        {
-            entity.Property(e => e.Id).ValueGeneratedNever();
+            modelBuilder.Entity<GameBoard>(entity =>
+            {
+                entity.Property(e => e.Author)
+                    .IsRequired()
+                    .HasMaxLength(20)
+                    .IsFixedLength();
 
-            entity.Property(e => e.Author)
-                .IsRequired()
-                .HasMaxLength(20)
-                .IsFixedLength();
+                entity.Property(e => e.Title)
+                    .IsRequired()
+                    .HasMaxLength(20)
+                    .IsFixedLength();
+            });
 
-            entity.Property(e => e.Title)
-                .IsRequired()
-                .HasMaxLength(20)
-                .IsFixedLength();
-        });
+            modelBuilder.Entity<GameTile>(entity =>
+            {
+                entity.Property(e => e.Content).IsRequired();
 
-        modelBuilder.Entity<GameTile>(entity =>
-        {
-            entity.Property(e => e.Id).ValueGeneratedNever();
+                entity.HasOne(d => d.GameBoard)
+                    .WithMany(p => p.GameTile)
+                    .HasForeignKey(d => d.GameBoardId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_GameBoard");
 
-            entity.Property(e => e.Content)
-                .IsRequired()
-                .HasMaxLength(50)
-                .IsFixedLength();
+                entity.Property(e => e.Order).IsRequired();
+            });
 
-            entity.HasOne(d => d.GameBoard)
-                .WithMany(p => p.GameTile)
-                .HasForeignKey(d => d.GameBoardId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_GameBoard");
-        });
-
-        OnModelCreatingPartial(modelBuilder);
-    }
+            OnModelCreatingPartial(modelBuilder);
+        }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }

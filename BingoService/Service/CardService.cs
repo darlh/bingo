@@ -6,24 +6,25 @@ using System.Threading.Tasks;
 using AutoMapper;
 using System.Linq;
 using System.Collections.Generic;
+using BingoData.Model;
 
 namespace BingoService.Service
 {
-    public class GameService : IGameService
+    public class CardService : ICardService
     {
-        private readonly IGameData _gameData;
+        private readonly IBoardData _gameData;
         private readonly IMapper _mapper;
-        public GameService(IGameData gameData, IMapper mapper)
+        public CardService(IBoardData gameData, IMapper mapper)
         {
             _gameData = gameData;
             _mapper = mapper;
         }
 
-        public async Task<GameBoardModel> GetGameBoardById(long id)
+        public async Task<CardModel> GetRandomGameCardById(long id)
         {
             try 
             {
-                var board = _mapper.Map<GameBoardModel>(await Task.Run(() => _gameData.GetGameBoardByIdAsync(id)));
+                var board = _mapper.Map<CardModel>(await Task.Run(() => _gameData.GetBoardByIdAsync(id)));
                 board.Tiles = GenerateRandomGameCard(board.Tiles);
                 return board;
             }
@@ -33,19 +34,7 @@ namespace BingoService.Service
             }
         }
 
-        public async Task<ICollection<GameBoardModel>> GetGames()
-        {
-            try
-            {
-                return _mapper.Map<ICollection<GameBoardModel>>(await Task.Run(() => _gameData.GetGames()));
-            }
-            catch(Exception e)
-            {
-                throw e;
-            }
-        }
-
-        private ICollection<TileModel> GenerateRandomGameCard(ICollection<TileModel> tiles)
+        private ICollection<CardTileModel> GenerateRandomGameCard(ICollection<CardTileModel> tiles)
         {
             //Shuffle the tiles
             int n = tiles.Count;
@@ -54,7 +43,7 @@ namespace BingoService.Service
             while (n > 1)
             {
                 int k = rnd.Next(n--);
-                TileModel temp = array[n];
+                CardTileModel temp = array[n];
                 array[n] = array[k];
                 array[k] = temp;
             }
@@ -73,6 +62,6 @@ namespace BingoService.Service
             }
             tiles = array;
             return tiles;
-        }
+        }        
     }
 }

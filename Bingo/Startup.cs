@@ -31,8 +31,9 @@ namespace Bingo
             services.AddDbContext<BingoDBContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("BingoDatabase")));
 
-            services.AddTransient<IGameData, GameData>();
-            services.AddTransient<IGameService, GameService>();
+            services.AddTransient<IBoardData, BoardData>();
+            services.AddTransient<ICardService, CardService>();
+            services.AddTransient<IBoardService, BoardService>();
 
             services.AddAutoMapper(typeof(GameMapping));
 
