@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace BingoService.Interface
 {
-    public interface IGameService
+    public interface ICardService
     {
-        public Task<GameBoardModel> GetGameBoardById(long id);
-        public Task<ICollection<GameBoardModel>> GetGames();
+        public Task<CardModel> GetRandomGameCardById(long id);
     }
 }

@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class HomeComponent implements OnInit {
   newGameDialogVisible: boolean = false;
+  editGameDialogVisible: boolean = false;
 
   ngOnInit() {
 

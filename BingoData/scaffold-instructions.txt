@@ -1,0 +1,1 @@
+﻿Scaffold-DbContext "Server=(localdb)\ProjectsV13;Database=Bingo;Trusted_Connection=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Entity -ContextDir Context -Context BingoDBContext -force

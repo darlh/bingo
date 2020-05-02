@@ -1,16 +1,12 @@
-export interface GameBoard {
+export class GameBoard {
   id: number;
   title: string;
-  tiles: Tile[];
-  freeSpace: boolean;
-  bingo: boolean;
+  author: string;
+  tiles: BoardTile[];
 }
 
-export interface Tile {
+export class BoardTile {
   id: number;
   content: string;
-  xCoordinate: number;
-  yCoordinate: number;
-  covered: boolean;
-  bingo: boolean;
+  order: number;
 }

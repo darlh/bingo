@@ -1,6 +1,6 @@
-<div *ngIf="gameBoard">
+<div *ngIf="gameCard">
   <div class="ui-g ui-g-nopad">
-    <div class="ui-g-offset-1 ui-g-10 game-header">{{gameBoard.title}}</div>
+    <div class="ui-g-offset-1 ui-g-10 game-header">{{gameCard.title}}</div>
   </div>
   <div class="ui-g ui-g-nopad">
     <div class="ui-g-offset-1 ui-g-2 game-header">B</div>
@@ -13,17 +13,17 @@
     <div class="ui-g-1"></div>
     <div class="ui-g-2"
          *ngFor="let y of columns"
-         [innerHTML]="(gameBoard.tiles | tilePosition: x:y).content"
+         [innerHTML]="(gameCard.tiles | tilePosition: x:y).content"
          (click)="clickTile(x,y)"
          [ngClass]="{
-          'game-tile-uncovered' : !(gameBoard.tiles | tilePosition: x:y).covered,
-          'game-tile-covered' : (gameBoard.tiles | tilePosition: x:y).covered,
-          'game-tile-bingo' : (gameBoard.tiles | tilePosition: x:y).bingo
+          'game-tile-uncovered' : !(gameCard.tiles | tilePosition: x:y).covered,
+          'game-tile-covered' : (gameCard.tiles | tilePosition: x:y).covered,
+          'game-tile-bingo' : (gameCard.tiles | tilePosition: x:y).bingo
          }"></div>
     <div class="ui-g-1"></div>
   </div>
 
-  <p-dialog header="BINGO!" [(visible)]="gameBoard.bingo" [modal]="true">
+  <p-dialog header="BINGO!" [(visible)]="displayWinDialog" [modal]="true">
     <p>You Win!</p>
   </p-dialog>
 </div>

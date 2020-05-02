@@ -32,12 +32,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\src\app\game-board\game-board.component.ts" />
+    <None Remove="ClientApp\src\app\create-edit-board\create-board.component.ts" />
+    <None Remove="ClientApp\src\app\game-card\game-card.component.ts" />
     <None Remove="ClientApp\src\app\model\GameBoard.ts" />
-    <None Remove="ClientApp\src\app\new-game\new-game.component.ts" />
+    <None Remove="ClientApp\src\app\model\GameCard.ts" />
+    <None Remove="ClientApp\src\app\select-game\select-game.component.ts" />
     <None Remove="ClientApp\src\app\pipe\tile-position.pipe.ts" />
     <None Remove="ClientApp\src\app\service\config.service.ts" />
     <None Remove="ClientApp\src\app\service\game-board.service.ts" />
+    <None Remove="ClientApp\src\app\service\game-card.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,12 +49,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\src\app\game-board\game-board.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\create-edit-board\create-board.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\create-edit-board\edit-board.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\game-card\game-card.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\model\GameBoard.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\new-game\new-game.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\GameCard.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\select-game\select-game.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\pipe\tile-position.pipe.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\service\config.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\service\game-board.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\service\game-card.service.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

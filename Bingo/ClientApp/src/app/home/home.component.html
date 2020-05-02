@@ -1,7 +1,12 @@
 <button pButton type="button" label="Start New Game" (click)="newGameDialogVisible=true"></button>
 <button pButton type="button" label="Join Game"></button>
-<button pButton type="button" label="Create New Board"></button>
+<button pButton type="button" label="Create New Board" routerLink="/create-board"></button>
+<button pButton type="button" label="Edit Game Board" (click)="editGameDialogVisible=true"></button>
 
 <p-dialog header="Start New Game" [(visible)]="newGameDialogVisible" [modal]="true">
-  <new-game></new-game>
+  <select-game route="/game-card/" buttonLabel="Start"></select-game>
+</p-dialog>
+
+<p-dialog header="Edit Game" [(visible)]="editGameDialogVisible" [modal]="true">
+  <select-game route="/edit-board/" buttonLabel="Edit"></select-game>
 </p-dialog>

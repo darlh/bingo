@@ -10,17 +10,21 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { GameBoardComponent } from './game-board/game-board.component';
-import { NewGameComponent } from './new-game/new-game.component';
+import { GameCardComponent } from './game-card/game-card.component';
+import { SelectGameComponent } from './select-game/select-game.component';
+import { CreateBoardComponent } from './create-edit-board/create-board.component';
+import { EditBoardComponent } from './create-edit-board/edit-board.component';
 
 import { ConfigService } from './service/config.service';
 import { GameBoardService } from './service/game-board.service';
+import { GameCardService } from './service/game-card.service';
 
 import { TilePositionPipe } from './pipe/tile-position.pipe';
 
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
+import { InputTextModule } from 'primeng/inputtext';
 
 
 
@@ -31,8 +35,10 @@ import { DropdownModule } from 'primeng/dropdown';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    GameBoardComponent,
-    NewGameComponent,
+    GameCardComponent,
+    SelectGameComponent,
+    CreateBoardComponent,
+    EditBoardComponent,
 
     TilePositionPipe,
   ],
@@ -44,11 +50,15 @@ import { DropdownModule } from 'primeng/dropdown';
     DialogModule,
     BrowserAnimationsModule,
     DropdownModule,
+    InputTextModule,
+
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'game-board/:id', component: GameBoardComponent },
+      { path: 'game-card/:id', component: GameCardComponent },
+      { path: 'create-board', component: CreateBoardComponent },
+      { path: 'edit-board/:id', component: EditBoardComponent },
     ])
   ],
   providers: [
@@ -59,7 +69,8 @@ import { DropdownModule } from 'primeng/dropdown';
       deps: [ConfigService],
       multi: true
     },
-    GameBoardService
+    GameBoardService,
+    GameCardService
   ],
   bootstrap: [AppComponent]
 })
