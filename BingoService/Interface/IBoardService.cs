@@ -12,6 +12,6 @@ namespace BingoService.Interface
         public Task<ICollection<BoardModel>> GetBoards();
         public Task<BoardModel> CreateBoard(BoardModel boardModel);
         public Task<BoardModel> EditBoard(BoardModel boardModel);
-        //public Task<BoardModel> DeleteBoard(long boardId);
+        public Task<BoardModel> DeleteBoard(long boardId);
     }
 }

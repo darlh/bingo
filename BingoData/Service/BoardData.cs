@@ -69,5 +69,21 @@ namespace BingoData.Service
                 throw e;
             }
         }
+        public async Task<GameBoard> DeleteBoardAsync(long gameBoardId)
+        {
+            try
+            {
+                var board = _context.GameBoard
+                    .Include(g => g.GameTile)
+                    .First(g => g.Id == gameBoardId);
+                _context.GameBoard.Remove(board);
+                await _context.SaveChangesAsync();
+                return board;
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

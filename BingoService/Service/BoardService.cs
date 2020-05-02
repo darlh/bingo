@@ -68,5 +68,17 @@ namespace BingoService.Service
                 throw e;
             }
         }
+
+        public async Task<BoardModel> DeleteBoard(long id)
+        {
+            try
+            {
+                return _mapper.Map<BoardModel>(await Task.Run(() => _gameData.DeleteBoardAsync(id)));
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }
