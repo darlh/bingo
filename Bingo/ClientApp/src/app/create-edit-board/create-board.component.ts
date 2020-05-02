@@ -30,7 +30,7 @@ export class CreateBoardComponent implements OnInit {
 
   addTile() {
     this.gameBoard.tiles.push(new BoardTile());
-    this.gameBoard.tiles[this.gameBoard.tiles.length].order = this.gameBoard.tiles.length;
+    this.gameBoard.tiles[this.gameBoard.tiles.length-1].order = this.gameBoard.tiles.length;
   }
 
   removeTile(i: number) {
