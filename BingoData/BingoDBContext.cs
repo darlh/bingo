@@ -48,7 +48,7 @@ namespace BingoData
                 entity.HasOne(d => d.GameBoard)
                     .WithMany(p => p.GameTile)
                     .HasForeignKey(d => d.GameBoardId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_GameBoard");
 
                 entity.Property(e => e.Order).IsRequired();

@@ -25,7 +25,8 @@ import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
-
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { InputTextModule } from 'primeng/inputtext';
     BrowserAnimationsModule,
     DropdownModule,
     InputTextModule,
+    ConfirmDialogModule,
 
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -70,7 +72,9 @@ import { InputTextModule } from 'primeng/inputtext';
       multi: true
     },
     GameBoardService,
-    GameCardService
+    GameCardService,
+
+    ConfirmationService,
   ],
   bootstrap: [AppComponent]
 })

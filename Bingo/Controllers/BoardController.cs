@@ -27,6 +27,9 @@ namespace BingoApi.Controllers
         [HttpPut]
         public async Task<IActionResult> Edit([FromBody] BoardModel model) => await EditBoard(model);
 
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(long id) => await DeleteBoard(id);
+
         private async Task<IActionResult> GetNewGame(long id)
         {
             return Ok(await _boardService.GetGameBoardById(id));
@@ -42,6 +45,10 @@ namespace BingoApi.Controllers
         private async Task<IActionResult> EditBoard(BoardModel model)
         {
             return Ok(await _boardService.EditBoard(model));
+        }
+        private async Task<IActionResult> DeleteBoard(long id)
+        {
+            return Ok(await _boardService.DeleteBoard(id));
         }
     }
 }

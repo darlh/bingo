@@ -12,5 +12,6 @@ namespace BingoData.Interface
         Task<ICollection<GameBoard>> GetBoards();
         Task<GameBoard> CreateBoardAsync(GameBoard board);
         Task<GameBoard> UpdateBoardAsync(GameBoard board);
+        Task<GameBoard> DeleteBoardAsync(long gameBoardId);
     }
 }
