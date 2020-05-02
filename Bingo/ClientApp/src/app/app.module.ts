@@ -25,7 +25,6 @@ import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
-import { SpinnerModule } from 'primeng/spinner';
 
 
 
@@ -52,7 +51,6 @@ import { SpinnerModule } from 'primeng/spinner';
     BrowserAnimationsModule,
     DropdownModule,
     InputTextModule,
-    SpinnerModule,
 
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },

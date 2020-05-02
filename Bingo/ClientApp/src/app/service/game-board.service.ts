@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ConfigService } from './config.service';
 import { GameBoard } from '../model/GameBoard';
-import { error } from '@angular/compiler/src/util';
 
 @Injectable()
 export class GameBoardService {
