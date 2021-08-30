@@ -1,0 +1,27 @@
+<p-card header="Start a New Game" [style]="{width: '400px'}">
+  <p>
+    Start a new solo game or join a group game!
+  </p>
+  <p-footer>
+    <button type="button" pButton label="Solo Game" (click)="newGameDialogVisible=true"></button>
+    <button type="button" pButton label="Group Game" disabled></button>
+  </p-footer>
+</p-card>
+<br/>
+<p-card header="Customize Game Boards" [style]="{width: '400px'}">
+  <p>
+    Create and edit a customized game board.
+  </p>
+  <p-footer>
+    <button type="button" pButton label="Create New Board" routerLink="/create-board"></button>
+    <button type="button" pButton label="Edit Game Board" (click)="editGameDialogVisible=true"></button>
+  </p-footer>
+</p-card>
+
+<p-dialog header="Start New Game" [(visible)]="newGameDialogVisible" [modal]="true">
+  <select-game route="/game-card/" buttonLabel="Start"></select-game>
+</p-dialog>
+
+<p-dialog header="Edit Game" [(visible)]="editGameDialogVisible" [modal]="true">
+  <select-game route="/edit-board/" buttonLabel="Edit"></select-game>
+</p-dialog>
