@@ -338,3 +338,8 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/BingoUi/ClientApp/src/app/model/GameCard.js.map
+/BingoUi/ClientApp/src/app/model/GameCard.js
+/BingoUi/ClientApp/src/app/model/GameBoard.js.map
+/BingoUi/ClientApp/src/app/model/GameBoard.js
+/BingoUi/aws-beanstalk-tools-defaults.json
