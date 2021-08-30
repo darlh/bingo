@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bingo", "Bingo\Bingo.csproj", "{507A258F-F235-4677-9B8F-8D015DFB382D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BingoService", "BingoService\BingoService.csproj", "{EE29C251-4FEF-4BFF-9C2A-E01E0E51CC3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BingoService", "BingoService\BingoService.csproj", "{EE29C251-4FEF-4BFF-9C2A-E01E0E51CC3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BingoData", "BingoData\BingoData.csproj", "{C38A1F14-E419-441B-B32E-A23A881C735D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BingoData", "BingoData\BingoData.csproj", "{C38A1F14-E419-441B-B32E-A23A881C735D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BingoUi", "BingoUi\BingoUi.csproj", "{602338C8-E474-4FD2-9EDE-EB3A64355959}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C38A1F14-E419-441B-B32E-A23A881C735D} = {C38A1F14-E419-441B-B32E-A23A881C735D}
+		{EE29C251-4FEF-4BFF-9C2A-E01E0E51CC3B} = {EE29C251-4FEF-4BFF-9C2A-E01E0E51CC3B}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{507A258F-F235-4677-9B8F-8D015DFB382D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{507A258F-F235-4677-9B8F-8D015DFB382D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{507A258F-F235-4677-9B8F-8D015DFB382D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{507A258F-F235-4677-9B8F-8D015DFB382D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EE29C251-4FEF-4BFF-9C2A-E01E0E51CC3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EE29C251-4FEF-4BFF-9C2A-E01E0E51CC3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE29C251-4FEF-4BFF-9C2A-E01E0E51CC3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +27,10 @@ Global
 		{C38A1F14-E419-441B-B32E-A23A881C735D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C38A1F14-E419-441B-B32E-A23A881C735D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C38A1F14-E419-441B-B32E-A23A881C735D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{602338C8-E474-4FD2-9EDE-EB3A64355959}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{602338C8-E474-4FD2-9EDE-EB3A64355959}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{602338C8-E474-4FD2-9EDE-EB3A64355959}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{602338C8-E474-4FD2-9EDE-EB3A64355959}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
